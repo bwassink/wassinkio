@@ -1,6 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&display=swap');
+:root {
+  --main: #000;
+  --highlight: #0678a0;
+  --background-dark: #888;
+  --background-light:#fff;
+  --text_light: #FFF;
+  --header-text_light: #411470;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
 h1 {
   font-size: 2em;
+  color: var(--header-text_light);
+  margin-top: 0;
 }
 h2 {
   font-size: 1.5em;
+}
+header {
+  background-color: var(--background-light);
+  color: var(--header-text_light);
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+nav {
+  color: var(--text-light);
+}
+
+nav a {
+  color: var(--text-light);
 }
