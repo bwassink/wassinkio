@@ -2,7 +2,7 @@
 :root {
   --main: #000;
   --highlight: #0678a0;
-  --background-dark: #888;
+  --background-dark: #aaa;
   --background-light:#fff;
   --text_light: #FFF;
   --header-text_light: #411470;
@@ -11,11 +11,18 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--background-light );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
 }
 h1 {
   font-size: 2em;
   color: var(--header-text_light);
   margin-top: 0;
+  margin-left: 1em;
 }
 h2 {
   font-size: 1.5em;
@@ -25,13 +32,28 @@ header {
   color: var(--header-text_light);
   padding: 0;
   margin: 0;
+  width: 100%;
   font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav {
   color: var(--text-light);
+  height: 2em;
+  margin-top: .5em;
+  margin-right:2em;
 }
 
 nav a {
   color: var(--text-light);
+}
+
+main {
+  width:960px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
