@@ -57,3 +57,13 @@ main {
   justify-content: center;
   align-items: center;
 }
+.answerButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nextPrevButtons{
+  display: flex;
+  gap: 2em;
+  margin-top:2em;
+}
