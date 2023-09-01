@@ -32,6 +32,10 @@ body {
   text-decoration: none;
 }
 
+.title a:visited {
+  color: var(--primary_dark);
+}
+
 h1 {
   font-size: 2em;
   color: var(--header-text_light);
