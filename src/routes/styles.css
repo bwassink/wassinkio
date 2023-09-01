@@ -19,6 +19,7 @@ body {
   align-items: center;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
+  font-size: 1.5em;
 }
 
 .title {
@@ -74,6 +75,10 @@ main {
 
 footer {
   height: 20px;
+}
+
+question {
+  width:100%;
 }
 
 .answerButtons {
