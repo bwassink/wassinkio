@@ -35,8 +35,8 @@ function addToScore() {
   score = score + 1;
 }
 </script>
-<h2>Hey Look, theres a quiz on this page!</h2>
-<div>
+<h2>Hey Look, theres a quiz on this page! Plan is to be able to pick a category and change the kind of quiz. Its not there yet. Hopefully soon.</h2>
+<quiz>
   <button on:click={resetMusicQuiz}>Music</button>
   <button on:click={getArt}>Art</button>
   <h3>My Score: {score}</h3>
@@ -57,4 +57,4 @@ function addToScore() {
 
 
 
-</div>
+</quiz>
