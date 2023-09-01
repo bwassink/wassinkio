@@ -45,12 +45,12 @@ Nah...
 {/if}
 <div class="answerButtons">
 {#each allAnswers as answer}
-  <button on:click={() => checkQuestion(answer.correct)}>{@html answer.answer}</button>
+  <button class="button-answer" on:click={() => checkQuestion(answer.correct)}>{@html answer.answer}</button>
 {/each}
 </div>
 {#if isAnswered}
   <div class="nextPrevButtons">
-  <button on:click={previousQuestion}>Previous Question</button>
-  <button on:click={nextQuestion}>Next Question</button>
+  <button class="button-ui" on:click={previousQuestion}>Previous Question</button>
+  <button class="button-ui" on:click={nextQuestion}>Next Question</button>
   </div>
   {/if}
