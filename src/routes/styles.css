@@ -30,6 +30,7 @@ body {
 
 .title a {
   text-decoration: none;
+  color: var(--primary_dark);
 }
 
 .title a:visited {
