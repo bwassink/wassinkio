@@ -20,6 +20,13 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
 }
+
+.title {
+  font-size: 2em;
+  color: var(--header-text_light);
+  margin-top: 0;
+}
+
 h1 {
   font-size: 2em;
   color: var(--header-text_light);
@@ -58,7 +65,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding:1em;
 }
+
+footer {
+  height: 20px;
+}
+
 .answerButtons {
   display: flex;
   justify-content: space-between;
@@ -95,4 +108,11 @@ main {
 .nextPrevButtons button:hover {
   box-shadow: 3px 3px 2px 1px #aaa;
   cursor: pointer;
+}
+
+@container (max-width: 500px) {
+  quiz {
+    margin-left:1em;
+    margin-right:1em;
+  }
 }
