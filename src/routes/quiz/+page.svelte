@@ -1,4 +1,5 @@
 <script>
+  import{ fade, fly } from 'svelte/transition';
   import Question from "../question.svelte";
   let activeQuestion = 0;
   let score = 0;
@@ -29,18 +30,27 @@ function previousQuestion() {
 function resetMusicQuiz() {
   score = 0;
   quiz = getMusic();
+  activeQuestion = 0;
 }
 
 function addToScore() {
   score = score + 1;
 }
+// Reactive Statement
+$: if (score > 5) {
+  alert("You Won!");
+  resetMusicQuiz();
+}
+// Reactive Declaration
+$: questionNumber = activeQuestion +1
+
 </script>
 <h2>Hey Look, theres a quiz on this page! Plan is to be able to pick a category and change the kind of quiz. Its not there yet. Hopefully soon.</h2>
 <quiz>
   <button on:click={resetMusicQuiz}>Music</button>
   <button on:click={getArt}>Art</button>
   <h3>My Score: {score}</h3>
-  <h4>Question: #{activeQuestion + 1}</h4>
+  <h4>Question: #{questionNumber}</h4>
 
   {#await quiz}
     Loading...  
@@ -48,7 +58,9 @@ function addToScore() {
   
     {#each data.results as question, index}
     {#if index === activeQuestion}
-    <Question {nextQuestion} {previousQuestion} {addToScore} {question} />
+      <div class="fade-wrapper" in:fly={{ y: 100 }} out:fly={{ y: -200 }}>
+      <Question {nextQuestion} {previousQuestion} {addToScore} {question} />
+      </div>
     {/if}
     {/each}
   
