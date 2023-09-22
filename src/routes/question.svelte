@@ -36,7 +36,7 @@ function checkQuestion(correct) {
 
 <h3>{@html question.question}</h3>  
 {#if isAnswered}
-<h4>{#if isCorrect}
+<h4 class:isCorrect class:wrong={!isCorrect}>{#if isCorrect}
 Correct!
 {:else}
 Nah...
@@ -45,7 +45,7 @@ Nah...
 {/if}
 <div class="answerButtons">
 {#each allAnswers as answer}
-  <button class="button-answer" on:click={() => checkQuestion(answer.correct)}>{@html answer.answer}</button>
+  <button class="button-answer" on:click|once={() => checkQuestion(answer.correct)}>{@html answer.answer}</button>
 {/each}
 </div>
 {#if isAnswered}

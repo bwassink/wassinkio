@@ -1,12 +1,13 @@
 <script>
   import{ fade, fly } from 'svelte/transition';
+  import { onMount } from 'svelte';
   import Question from "../question.svelte";
+  import Modal from '../modal.svelte';
   let activeQuestion = 0;
   let score = 0;
   let quiz = getMusic();
   let quizArt = getArt();
-
-
+  let isModalOpen = false;
 
 async function getMusic() {
   const res = await fetch('https://opentdb.com/api.php?amount=10&category=12&type=multiple')
@@ -28,6 +29,7 @@ function previousQuestion() {
 }
 
 function resetMusicQuiz() {
+  isModalOpen = false;
   score = 0;
   quiz = getMusic();
   activeQuestion = 0;
@@ -37,9 +39,8 @@ function addToScore() {
   score = score + 1;
 }
 // Reactive Statement
-$: if (score > 5) {
-  alert("You Won!");
-  resetMusicQuiz();
+$: if (score > 0) {
+  isModalOpen = true;
 }
 // Reactive Declaration
 $: questionNumber = activeQuestion +1
@@ -70,3 +71,12 @@ $: questionNumber = activeQuestion +1
 
 
 </quiz>
+
+{#if isModalOpen}
+<Modal>
+<h2>You Won!</h2>
+<p>Contrats!</p>
+<button class="ui_button" on:click={resetMusicQuiz}>Play Again?</button>
+
+</Modal>
+{/if}

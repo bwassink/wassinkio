@@ -46,6 +46,15 @@ h1 {
 h2 {
   font-size: 1.5em;
 }
+
+.wrong {
+  color: red;
+}
+
+.isCorrect {
+  color: green;
+}
+
 header {
   background-color: var(--background-light);
   color: var(--header-text_light);
@@ -84,6 +93,16 @@ footer {
 
 question {
   width:100%;
+}
+
+.ui-button {
+  background-color: var(--primary_dark);
+  color: var(--text_light);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: .5em;
+  border-radius: 10px;
+  border: none;
 }
 
 .answerButtons {
