@@ -39,7 +39,7 @@ function addToScore() {
   score = score + 1;
 }
 // Reactive Statement
-$: if (score > 0) {
+$: if (score > 9) {
   isModalOpen = true;
 }
 // Reactive Declaration

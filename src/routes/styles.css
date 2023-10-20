@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&family=Permanent+Marker&display=swap');
 :root {
   --main: #000;
   --highlight: #0678a0;
@@ -7,6 +7,8 @@
   --text_light: #FFF;
   --header-text_light: #411470;
   --primary_dark: #411470;
+  --primary-font: 'Josefin Sans', sans-serif;
+  --header-font:  'Permanent Marker', cursive;
 
 }
 
@@ -40,11 +42,13 @@ body {
 h1 {
   font-size: 2em;
   color: var(--header-text_light);
+  font-family: var(--header-font);
   margin-top: 0;
   margin-left: 1em;
 }
 h2 {
   font-size: 1.5em;
+  font-family: var(--header-font);
 }
 
 .wrong {
