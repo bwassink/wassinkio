@@ -91,6 +91,10 @@ main {
   padding:1em;
 }
 
+.commentary {
+  font-family: var(--header-font);
+}
+
 footer {
   height: 20px;
 }
