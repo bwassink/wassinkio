@@ -46,7 +46,8 @@ $: if (score > 9) {
 $: questionNumber = activeQuestion +1
 
 </script>
-<h2>Hey Look, theres a quiz on this page! Plan is to be able to pick a category and change the kind of quiz. Its not there yet. Hopefully soon.</h2>
+<h1>Hey Look, theres a quiz on this page!</h1>
+<h2>Plan is to be able to pick a category and change the kind of quiz. Its not there yet. Hopefully soon.</h2>
 <quiz>
   <button on:click={resetMusicQuiz}>Music</button>
   <button on:click={getArt}>Art</button>
