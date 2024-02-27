@@ -76,7 +76,7 @@ $: questionNumber = activeQuestion +1
 {#if isModalOpen}
 <Modal>
 <h2>You Won!</h2>
-<p>Contrats!</p>
+<p>Congrats!</p>
 <button class="ui_button" on:click={resetMusicQuiz}>Play Again?</button>
 
 </Modal>
