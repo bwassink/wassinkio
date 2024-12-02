@@ -1,38 +1,74 @@
-# create-svelte
+# A minimal SvelteKit site with Sanity Studio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This starter uses [SvelteKit](https://kit.svelte.dev/) for the frontend and [Sanity](https://sanity.io/) to handle its content.
 
-## Creating a project
+## Featuring
 
-If you're seeing this, you've probably already done this step. Congrats!
+- How to fetch content as data from [the Sanity Content Lake](https://www.sanity.io/docs/datastore)
+- How to render block content with [Portable Text](https://www.sanity.io/docs/presenting-block-text)
+- A [Sanity Studio](https://www.sanity.io/docs/sanity-studio) to create and edit content
+- Visual editing with live updates through [Presentation](https://www.sanity.io/docs/presentation)
+- How to crop and render images with [Sanity Image URLs](https://www.sanity.io/docs/image-url)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+> **Note**
+>
+> This starter features an `/app` and a `/studio` folder. The `/app` folder contains the frontend code, and the `/studio` folder contains the Sanity Studio code.
+>
+> It is configured as a monorepo using [pnpm workspaces](https://pnpm.io/workspaces), but you can treat these directories as separate projects if you prefer.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Prerequisities
+
+- [Node.js](https://nodejs.org/en/) (v14.18 or later)
+- [Sanity CLI](https://www.sanity.io/docs/getting-started-with-sanity-cli) (optional)
+
+## Getting started
+
+Run the following commands to prepare both applications, each step should be executed from the **root directory**:
+
+1. Install dependencies.
+
+```sh
+pnpm install
 ```
 
-## Developing
+2. Select or create a Sanity project and dataset, and output the details to a `.env` file.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```sh
+cd studio && pnpm sanity init --env .env
 ```
 
-## Building
+3. [Generate a token](https://www.sanity.io/docs/http-auth#4c21d7b829fe) with read permissions for use in the next step.
 
-To create a production version of your app:
-
-```bash
-npm run build
+```sh
+pnpm sanity manage
 ```
 
-You can preview the production build with `npm run preview`.
+4. Copy the example app `.env` file and populate it with the required values.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```sh
+cp ./app/.env.example ./app/.env
+```
+
+5.  Start the development servers:
+
+```sh
+pnpm dev
+```
+
+- Your SvelteKit app should now be running on [http://localhost:5173/](http://localhost:5173/).
+- Your Studio should now be running on [http://localhost:3333/](http://localhost:3333/).
+
+### Add content
+
+1. Visit the Studio and create and publish a new `Post` document
+2. Visit the App and refresh the page to see your content rendered on the page
+
+The schema for the `Post` document is defined in the `/studio/schemas` folder. You can add more documents and schemas to the Studio to suit your needs.
+
+## Deployments
+
+The `/app` and `/studio` folders are meant to be deployed separately.
+
+Make sure that after `/app` is deployed the `.env` file in `/studio` is updated with its deployment URL under `SANITY_STUDIO_PREVIEW_URL`.
+
+And `/app` has a `.env` file with `PUBLIC_SANITY_STUDIO_URL` that points to the Studio's deployment URL.
